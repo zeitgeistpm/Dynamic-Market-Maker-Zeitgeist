@@ -33,6 +33,7 @@ The parameters and functions used here are derivated by the paper, and I make so
   - An initial amount of X asset
   - An initial amount of Y asset
   - A date to start simulating
+
 After this, a loop will pick the data frame returned in getDateAndCorrelation() picking the information between the initial date and the date picked recently. With this, it will calculate the volume ratio to adjust the fee. 
 When this is calculated, there will be generated a random volume of the asset that will be traded, and with this and the dynamic fee, the amount of the asset that you'll give away will be returned.
 
