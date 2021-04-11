@@ -1,17 +1,3 @@
-'''
-How does this work:
-1- Define 2 assets to analize
-2- Get the correlation of those tokens for a period of time (let's say 100 days)
-3- Take the average volume from that period. This is the long window (A_t)
-4- Take the average volume from a shorter period (let's say 15 days). This is the short window (A_s)
-5- Define the parameters for the z(r) function:
-    . With 3 and 4 we can define r
-    . n
-    . p
-6- According to the correlation returned in 1, define the Base Fee (fee) with the values shown in the paper.
-    Also define price ranges.
-
-'''
 import math
 from getAssetData import getVolumeData
 import pandas as pd
@@ -149,9 +135,6 @@ for i in tqdm(range(100)):
     # print(f'We are going to buy {buyAsset} and we will give away {yElement}')
 
     stopTime = endDate.strftime('%Y-%m-%d')
-    # endsAt = df[df['date'] == stopTime].index[0]
-    # endsAt +=1
-    # temp = df[:endsAt]
     temp = df.loc[:stopTime, :]
 
     r = getVolumeRatio(buyAsset, temp)
